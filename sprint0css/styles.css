@@ -1,0 +1,216 @@
+/* =============================
+   Variables CSS
+============================= */
+:root {
+  --color-primario: #2c3e50;
+  --color-secundario: #ecf0f1;
+  --color-acento: #e74c3c;
+  --espaciado: 20px;
+  --fuente-principal: 'Segoe UI', sans-serif;
+}
+
+/* =============================
+   Reset y estilos base
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  color: var(--color-primario);
+  background-color: var(--color-secundario);
+  line-height: 1.6;
+}
+
+/* =============================
+   Encabezado (Flexbox)
+============================= */
+header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--color-primario);
+  color: white;
+  padding: var(--espaciado);
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: var(--espaciado);
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: var(--color-acento);
+}
+
+/* =============================
+   Banner principal
+============================= */
+.banner {
+  background-image: url('https://via.placeholder.com/1200x400');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+  position: relative;
+}
+
+.banner-text {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: var(--espaciado);
+}
+
+/* =============================
+   Galería (CSS Grid)
+============================= */
+.galeria {
+  padding: var(--espaciado);
+}
+
+.grid-galeria {
+  display: grid;
+  gap: var(--espaciado);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+/* =============================
+   Información (Float)
+============================= */
+.info {
+  padding: var(--espaciado);
+}
+
+.info img {
+  float: left;
+  margin-right: var(--espaciado);
+  width: 200px;
+}
+
+.info-text {
+  overflow: hidden;
+}
+
+/* =============================
+   Formulario (Flexbox)
+============================= */
+.contacto {
+  padding: var(--espaciado);
+  background-color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-acento);
+}
+
+/* =============================
+   Footer (Grid o Flexbox)
+============================= */
+footer {
+  background-color: var(--color-primario);
+  color: white;
+  padding: var(--espaciado);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--espaciado);
+  text-align: center;
+}
+
+/* =============================
+   Media Queries
+============================= */
+@media (max-width: 767px) {
+  .grid-galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .info img {
+    float: none;
+    display: block;
+    margin: 0 auto var(--espaciado);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
